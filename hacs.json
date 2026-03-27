@@ -1,0 +1,7 @@
+{
+  "name": "Navimow Card",
+  "description": "Lovelace card for controlling Navimow robot mowers",
+  "render_readme": true,
+  "filename": "navimow-card.js",
+  "content_in_root": true
+}
