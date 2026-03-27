@@ -4,8 +4,6 @@
 
 Lovelace-Karte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, ohne Karte.
 
-![Preview](preview.png)
-
 ## Funktionen
 
 - Status-Anzeige mit animiertem Icon (Mäht / Pausiert / Kehrt zurück / Geparkt / Fehler)
@@ -15,9 +13,9 @@ Lovelace-Karte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, o
 
 ## Installation via HACS
 
-1. HACS öffnen → **Frontend** → Drei-Punkte-Menü → **Benutzerdefinierte Repositories**
+1. HACS öffnen → **Dashboard** → Drei-Punkte-Menü → **Benutzerdefinierte Repositories**
 2. URL eingeben: `https://github.com/dgirod/mowercard`
-3. Kategorie: **Lovelace** → **Hinzufügen**
+3. Kategorie: **Dashboard** → **Hinzufügen**
 4. Repository in der Liste suchen → **Herunterladen**
 5. Home Assistant neu laden (Browser-Cache leeren: `Strg+Umschalt+R`)
 
@@ -48,11 +46,11 @@ battery_entity: sensor.navimow_battery    # Optional – wird meist automatisch 
 
 ## Unterstützte Zustände
 
-| Zustand     | Anzeige         | Farbe   |
-|-------------|-----------------|---------|
+| Zustand     | Anzeige         | Farbe             |
+|-------------|-----------------|-------------------|
 | `mowing`    | Mäht            | Grün (pulsierend) |
-| `docked`    | Geparkt         | Grau    |
-| `paused`    | Pausiert        | Orange  |
-| `returning` | Kehrt zurück    | Blau    |
-| `error`     | Fehler          | Rot     |
-| `idle`      | Bereit          | Grau    |
+| `docked`    | Geparkt         | Grau              |
+| `paused`    | Pausiert        | Orange            |
+| `returning` | Kehrt zurück    | Blau              |
+| `error`     | Fehler          | Rot               |
+| `idle`      | Bereit          | Grau              |

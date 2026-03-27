@@ -157,7 +157,6 @@ class NavimowCard extends HTMLElement {
 
         .content { padding: 16px; }
 
-        /* ── Header ── */
         .header {
           display: flex;
           align-items: center;
@@ -208,7 +207,6 @@ class NavimowCard extends HTMLElement {
         }
         .battery ha-icon { --mdc-icon-size: 22px; }
 
-        /* ── Battery bar ── */
         .bar-track {
           height: 4px;
           background: var(--divider-color, rgba(0,0,0,.12));
@@ -221,7 +219,6 @@ class NavimowCard extends HTMLElement {
           transition: width .5s ease, background .3s;
         }
 
-        /* ── Buttons ── */
         .controls {
           display: flex; gap: 8px;
         }
@@ -306,8 +303,7 @@ window.customCards.push({
   name: "Navimow Card",
   description: "Steuerungskarte für den Navimow Mähroboter",
   preview: true,
-  documentationURL:
-    "https://github.com/dgirod/mowercard",
+  documentationURL: "https://github.com/dgirod/mowercard",
 });
 
 console.info(
