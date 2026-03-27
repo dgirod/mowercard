@@ -1,52 +1,58 @@
 # Navimow Card
 
-Eine Home Assistant Lovelace Karte zur Steuerung des Navimow Mähroboters – angelehnt an die Vacuum-Karte, aber ohne Karte.
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
+
+Lovelace-Karte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, ohne Karte.
+
+![Preview](preview.png)
 
 ## Funktionen
 
-- Anzeige des aktuellen Status (Mäht, Pausiert, Kehrt zurück, Geparkt, Fehler)
+- Status-Anzeige mit animiertem Icon (Mäht / Pausiert / Kehrt zurück / Geparkt / Fehler)
 - Schaltflächen: **Start**, **Pause**, **Zur Ladestation**
-- Batteriestand mit Farb-Indikator und Fortschrittsbalken
-- Animiertes Icon beim Mähen
+- Batteriestand mit farbigem Indikator und Fortschrittsbalken
+- Keine externen Abhängigkeiten – vollständig eigenständig
 
-## Installation
+## Installation via HACS
 
-### Manuell
+1. HACS öffnen → **Frontend** → Drei-Punkte-Menü → **Benutzerdefinierte Repositories**
+2. URL eingeben: `https://github.com/dgirod/mowercard`
+3. Kategorie: **Lovelace** → **Hinzufügen**
+4. Repository in der Liste suchen → **Herunterladen**
+5. Home Assistant neu laden (Browser-Cache leeren: `Strg+Umschalt+R`)
 
-1. Datei `navimow-card.js` nach `/config/www/navimow-card.js` kopieren.
-2. In Home Assistant unter **Einstellungen → Dashboards → Ressourcen** hinzufügen:
+## Manuelle Installation
+
+1. `navimow-card.js` nach `/config/www/navimow-card.js` kopieren
+2. **Einstellungen → Dashboards → Ressourcen** → Hinzufügen:
    - URL: `/local/navimow-card.js`
    - Typ: `JavaScript-Modul`
-3. Seite neu laden.
-
-### HACS
-
-Repository als benutzerdefiniertes Repository in HACS hinzufügen.
+3. Browser neu laden
 
 ## Konfiguration
 
 ```yaml
 type: custom:navimow-card
-entity: lawn_mower.navimow_mein_gaerter  # Pflichtfeld
-name: Navimow                             # Optional – überschreibt den HA-Namen
-battery_entity: sensor.navimow_battery   # Optional – wird sonst automatisch erkannt
+entity: lawn_mower.navimow_mein_gaerter   # Pflichtfeld
+name: Navimow                              # Optional
+battery_entity: sensor.navimow_battery    # Optional – wird meist automatisch erkannt
 ```
 
-## Konfigurationsoptionen
+### Optionen
 
-| Option           | Typ    | Pflicht | Beschreibung                                         |
-|------------------|--------|---------|------------------------------------------------------|
-| `entity`         | string | Ja      | Entity-ID der `lawn_mower`-Entität                   |
-| `name`           | string | Nein    | Anzeigename (Standard: `friendly_name` der Entität)  |
-| `battery_entity` | string | Nein    | Entity-ID des Batteriesensors                        |
+| Option           | Typ    | Pflicht | Beschreibung                                          |
+|------------------|--------|:-------:|-------------------------------------------------------|
+| `entity`         | string | ✅      | Entity-ID der `lawn_mower`-Entität                    |
+| `name`           | string | –       | Anzeigename (Standard: `friendly_name` der Entität)   |
+| `battery_entity` | string | –       | Entity-ID des Batteriesensors (sonst auto-erkannt)    |
 
 ## Unterstützte Zustände
 
-| Zustand      | Anzeige         |
-|--------------|-----------------|
-| `mowing`     | Mäht            |
-| `docked`     | Geparkt         |
-| `paused`     | Pausiert        |
-| `returning`  | Kehrt zurück    |
-| `error`      | Fehler          |
-| `idle`       | Bereit          |
+| Zustand     | Anzeige         | Farbe   |
+|-------------|-----------------|---------|
+| `mowing`    | Mäht            | Grün (pulsierend) |
+| `docked`    | Geparkt         | Grau    |
+| `paused`    | Pausiert        | Orange  |
+| `returning` | Kehrt zurück    | Blau    |
+| `error`     | Fehler          | Rot     |
+| `idle`      | Bereit          | Grau    |

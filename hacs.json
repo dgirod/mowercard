@@ -1,7 +1,8 @@
 {
   "name": "Navimow Card",
-  "description": "Lovelace card for controlling Navimow robot mowers",
+  "description": "Lovelace card for controlling Navimow robot mowers in Home Assistant",
   "render_readme": true,
   "filename": "navimow-card.js",
-  "content_in_root": true
+  "content_in_root": true,
+  "homeassistant": "2023.0.0"
 }
