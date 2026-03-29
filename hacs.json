@@ -4,5 +4,6 @@
   "render_readme": true,
   "filename": "navimow-card.js",
   "content_in_root": true,
-  "homeassistant": "2023.0.0"
+  "homeassistant": "2023.0.0",
+  "version": "1.0.0"
 }
