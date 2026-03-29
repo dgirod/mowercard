@@ -4,6 +4,8 @@
 
 Lovelace-Karte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, ohne Karte.
 
+![Preview](lawnmower_i105.png)
+
 ## Funktionen
 
 - Status-Anzeige mit animiertem Icon (Mäht / Pausiert / Kehrt zurück / Geparkt / Fehler)
