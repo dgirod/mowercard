@@ -2,7 +2,7 @@
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 
-Lovelace-Karte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, ohne Karte.
+Lovelace-Karte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, jedoch ohne Karte.
 
 ![Preview](lawnmower_i105.png)
 
