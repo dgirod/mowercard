@@ -1,4 +1,4 @@
-const VERSION = "1.1.0";
+const VERSION = "1.0.0";
 
 // ─── Navimow i105 – Top-down SVG ────────────────────────────────────────────
 const MOWER_SVG = `
@@ -215,7 +215,6 @@ class NavimowCard extends HTMLElement {
 
   .content { padding: 16px 16px 14px; }
 
-  /* ── Top row ── */
   .top {
     display: flex; align-items: center;
     justify-content: space-between; margin-bottom: 4px;
@@ -231,13 +230,11 @@ class NavimowCard extends HTMLElement {
   }
   .battery ha-icon { --mdc-icon-size: 20px; }
 
-  /* ── SVG image ── */
   .mower-wrap {
     display: flex; justify-content: center;
     padding: 8px 0 4px;
   }
 
-  /* SVG color classes */
   .c-wheel      { fill: #1a1a2e; }
   .c-tread      { fill: #252540; }
   .c-body       { fill: #2b2b3b; }
@@ -255,7 +252,6 @@ class NavimowCard extends HTMLElement {
   .c-hub        { fill: #636e72; }
   .c-hub-center { fill: #2b2b3b; }
 
-  /* ── SVG layout & animation ── */
   svg {
     width: 160px; height: 160px;
     cursor: pointer;
@@ -280,7 +276,6 @@ class NavimowCard extends HTMLElement {
     100% { transform: rotate(0deg);   }
   }
 
-  /* ── Blade spin ── */
   .blade {
     transform-box: fill-box;
     transform-origin: center;
@@ -293,7 +288,6 @@ class NavimowCard extends HTMLElement {
     to   { transform: rotate(360deg); }
   }
 
-  /* ── LED pulse when mowing ── */
   .led-pulse .c-led-glow {
     animation: led-pulse 1.5s ease-in-out infinite;
   }
@@ -302,7 +296,6 @@ class NavimowCard extends HTMLElement {
     50%       { opacity: 0.4; }
   }
 
-  /* ── Status row ── */
   .status-row {
     display: flex; align-items: center; justify-content: center;
     gap: 6px; margin: 6px 0 10px;
@@ -314,7 +307,6 @@ class NavimowCard extends HTMLElement {
     background: ${statColor};
   }
 
-  /* ── Battery bar ── */
   .bar-track {
     height: 4px; background: var(--divider-color, rgba(0,0,0,.12));
     border-radius: 2px; margin-bottom: 14px; overflow: hidden;
@@ -325,7 +317,6 @@ class NavimowCard extends HTMLElement {
     transition: width .5s ease, background .3s;
   }
 
-  /* ── Buttons ── */
   .controls { display: flex; gap: 8px; }
   .btn {
     flex: 1; display: flex; flex-direction: column;
@@ -347,8 +338,6 @@ class NavimowCard extends HTMLElement {
 
 <ha-card>
   <div class="content">
-
-    <!-- Top: name + battery -->
     <div class="top">
       <div class="name">${name}</div>
       <div class="battery">
@@ -357,7 +346,6 @@ class NavimowCard extends HTMLElement {
       </div>
     </div>
 
-    <!-- Mower SVG image -->
     <div class="mower-wrap">
       ${MOWER_SVG.replace(
         '<svg ',
@@ -365,16 +353,13 @@ class NavimowCard extends HTMLElement {
       )}
     </div>
 
-    <!-- Status -->
     <div class="status-row">
       <div class="status-dot"></div>
       <span>${this._statusLabel(state)}</span>
     </div>
 
-    <!-- Battery bar -->
     ${battery !== null ? `<div class="bar-track"><div class="bar-fill"></div></div>` : ""}
 
-    <!-- Controls -->
     <div class="controls">
       <div class="btn ${isMowing ? "active" : ""}" id="btn-start">
         <ha-icon icon="mdi:play"></ha-icon><span>Start</span>
@@ -386,11 +371,9 @@ class NavimowCard extends HTMLElement {
         <ha-icon icon="mdi:home-import-outline"></ha-icon><span>Basis</span>
       </div>
     </div>
-
   </div>
 </ha-card>`;
 
-    // Click on image: start/pause toggle
     this.shadowRoot.getElementById("mower-svg")
       ?.addEventListener("click", () =>
         this._callService(isMowing ? "pause" : "start_mowing")
@@ -410,7 +393,7 @@ window.customCards = window.customCards || [];
 window.customCards.push({
   type: "navimow-card",
   name: "Navimow Card",
-  description: "Steuerungskarte für den Navimow Mähroboter",
+  description: "This card displays the state and allows to control your lawnmower.",
   preview: true,
   documentationURL: "https://github.com/dgirod/mowercard",
 });
