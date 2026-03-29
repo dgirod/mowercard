@@ -264,25 +264,12 @@ class NavimowCard extends HTMLElement {
   }
 
   svg.docked    { opacity: 0.45; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2)) grayscale(0.4); }
-  svg.mowing    { animation: cleaning 5s linear infinite; }
+  svg.mowing    { animation: cleaning 2s ease-in-out infinite; }
   svg.returning { animation: returning 2s linear infinite; }
 
   @keyframes cleaning {
-    0%   { transform: rotate(0deg)   translateY(0);     }
-    5%   { transform: rotate(0deg)   translateY(-9px);  }
-    10%  { transform: rotate(0deg)   translateY(5px);   }
-    15%  { transform: rotate(0deg)   translateY(0);     }
-    20%  { transform: rotate(28deg)  translateY(0);     }
-    25%  { transform: rotate(28deg)  translateY(-9px);  }
-    30%  { transform: rotate(28deg)  translateY(5px);   }
-    35%  { transform: rotate(28deg)  translateY(0);     }
-    40%  { transform: rotate(0deg)   translateY(0);     }
-    45%  { transform: rotate(-28deg) translateY(0);     }
-    50%  { transform: rotate(-28deg) translateY(-9px);  }
-    55%  { transform: rotate(-28deg) translateY(5px);   }
-    60%  { transform: rotate(-28deg) translateY(0);     }
-    70%  { transform: rotate(0deg)   translateY(0);     }
-    100% { transform: rotate(0deg)   translateY(0);     }
+    0%, 100% { transform: rotate(-12deg); }
+    50%       { transform: rotate(12deg); }
   }
 
   @keyframes returning {
@@ -312,7 +299,7 @@ class NavimowCard extends HTMLElement {
   }
   @keyframes led-pulse {
     0%, 100% { opacity: 0; }
-    50%       { opacity: 0.35; }
+    50%       { opacity: 0.4; }
   }
 
   /* ── Status row ── */
@@ -325,11 +312,6 @@ class NavimowCard extends HTMLElement {
   .status-dot {
     width: 7px; height: 7px; border-radius: 50%;
     background: ${statColor};
-    ${isMowing ? "animation: dot-pulse 1.5s ease-in-out infinite;" : ""}
-  }
-  @keyframes dot-pulse {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
   }
 
   /* ── Battery bar ── */
