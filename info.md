@@ -1,5 +1,6 @@
 ## Navimow Card
 
+![Preview](lawnmower_i105.png)
 Steuerungskarte für den Navimow Mähroboter – angelehnt an die Vacuum-Karte, ohne Karte.
 
 **Funktionen:**
